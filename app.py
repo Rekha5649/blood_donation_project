@@ -12,13 +12,17 @@ def home():
 @app.route('/predict', methods = ['POST'])
 def predict():
     int_features = [int(x) for x in request.form.values()]
-    final_features = [np.arrary(int_features)]
-    prediction = model.predict(final_features[1:])
+    int_features[2] = np.log(int_features[2])
+    final_features = [np.array(int_features)]
+    print('------------------------------------------------------------------',final_features,len(final_features),'-------------------------------------------------------------------')
+    
+    prediction = model.predict(final_features)
+    print('------------------------------------------------------------------',prediction,'-------------------------------------------------------------------')
     if prediction == 0:
-        return render_template('project.html', prediction_text = f'{final_features[0]}, you are not able to donate the blood')
+        return render_template('project.html', prediction_text = f'you are not able to donate the blood')
 
     else:
-        return render_template('project.html', prediction_text = f'{final_features[0]}, you are allright and able to donate the blood')
+        return render_template('project.html', prediction_text = f'you are allright and able to donate the blood')
 
 if __name__ == '__main__':
     app.run(debug=True)
