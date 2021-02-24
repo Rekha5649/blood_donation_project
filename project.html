@@ -13,11 +13,8 @@
     <div class="login">
         <h1><strong>Blood Donation</strong></h1>
         <p>Here we will tell you if you can donate blood on the bases of the data which you provide in this form.</p>
-    </div>
-    <div>
-        <form action='input_of_user'>
-            <!-- label to the given id  -->
-            
+
+        <form action="{{ url_for('predict')}}"method="post">            
             <p>Name:&nbsp; &nbsp; &nbsp;<input type="text" name='Name' placeholder='Your name'></p>
             <p>Recency: <input type='number' name='Recency' placeholder="months since the last donation"
                     required='required'>
@@ -32,8 +29,10 @@
                 <input type='Submit' id = 'Submit' value='Submit'>
                 <input type='Reset' id = 'Reset' value='Reset'>
             </div>
-
         </form>
+        <br>
+        <br>
+        {{prediction_text}}
     </div>
 </body>
 
