@@ -26,7 +26,26 @@ form{
     text-align: center;
     margin: 12px;
     padding: 12px;
-    border: solid 3px red;
-    display: block;
+    /* border: solid 3px red; */
+    font-size: 19px;
+
     
+
+    
+}
+input{
+    border: 2px solid rgb(2, 2, 2);
+    #margin: 12px;
+    border-radius: 4px;
+
+}
+
+:placeholder-shown{
+    color:red;
+    font-size: 14px;
+    padding: 7px;
+    
+}
+::placeholder{
+    line-height: inherit;
 }
