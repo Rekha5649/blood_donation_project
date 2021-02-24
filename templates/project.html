@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blood Donation</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        body{
+    background: url('https://cdn.pixabay.com/photo/2018/02/28/15/17/red-blood-cells-3188223_1280.jpg') no-repeat center fixed; 
+    background-size: cover;
+    /* opacity: 0.1; */
+    text-align: center;
+}
+
+h1{
+    color: whitesmoke;
+    display: block;
+    margin: 8px;
+    padding: 6px;
+    background-color: rgb(250, 96, 96);
+    border: 2px solid rgb(148, 26, 26);
+    border-radius: 8px; 
+    /* border-style: ;  */
+    text-align: center;
+
+}
+
+p{
+    color: white;
+    text-align: center;
+}
+
+form{
+    text-align: center;
+    margin: 12px;
+    padding: 12px;
+    /* border: solid 3px red; */
+    font-size: 19px;
+
+    
+
+    
+}
+input{
+    border: 2px solid rgb(2, 2, 2);
+    #margin: 12px;
+    border-radius: 4px;
+
+}
+
+:placeholder-shown{
+    color:red;
+    font-size: 12px;
+    padding: 3px;
+    width: 20em;  height: 2em;
+    /* text-align: center; */
+}
+
+
+#Submit, #Reset{
+    width: 10em;  
+    height: 2.5em;
+    border-radius: 8px;
+    background-color: red;
+    border: 2px solid rgb(245, 47, 56);
+}
+
+#Submit:hover, #Reset:hover{
+    color: white;
+    background-color: rgb(7, 7, 7);
+    border-color: white;
+}
+
+#Submit:visited, #Reset:hover {
+    color: white;
+    background-color: black;
+}
+#result{
+    color: rgb(231, 238, 238);
+    font-size: 15px;
+}
+
+    </style>
+</head>
+
+<body>
+    <div>
+        <h1><strong>Blood Donation</strong></h1>
+        <p>Here we will tell you if you can donate blood on the bases of the data which you provide in this form.</p>
+
+        <form action="{{ url_for('predict')}}"method="post">            
+            <!-- <p>Name:&nbsp; &nbsp; &nbsp;<input type="text" name='Name' placeholder='Your name'></p> -->
+            <p>Recency: <input type='number' name='Recency' placeholder="months since the last donation"
+                    required='required'>
+            <p>
+            <p>Frequency: <input type='number' name='Frequency' placeholder='total number of donation'
+                    required='required'></p>
+            <p>Monetary: <input type='number' name='Monetary' placeholder='total blood donated in c.c.'
+                    required='required'></p>
+            <p>Time: <input type='number' name='Time' placeholder='months since the first donation' required='required'>
+            </p>
+            <div>
+                <input type='Submit' id = 'Submit' value='Submit'>
+                <input type='Reset' id = 'Reset' value='Reset'>
+            </div>
+        </form>
+        <br>
+        <br>
+        <div id='result'>
+            {{prediction_text}}
+        </div>
+       
+    </div>
+</body>
+
+</html>
