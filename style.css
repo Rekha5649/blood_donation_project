@@ -42,10 +42,28 @@ input{
 
 :placeholder-shown{
     color:red;
-    font-size: 14px;
-    padding: 7px;
-    
+    font-size: 12px;
+    padding: 3px;
+    width: 20em;  height: 2em;
+    /* text-align: center; */
 }
-::placeholder{
-    line-height: inherit;
+
+
+#Submit, #Reset{
+    width: 10em;  
+    height: 2.5em;
+    border-radius: 8px;
+    background-color: red;
+    border: 2px solid rgb(245, 47, 56);
+}
+
+#Submit:hover, #Reset:hover{
+    color: white;
+    background-color: rgb(7, 7, 7);
+    border-color: white;
+}
+
+#Submit:visited, #Reset:hover {
+    color: white;
+    background-color: black;
 }
