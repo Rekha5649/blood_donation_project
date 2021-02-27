@@ -14,7 +14,6 @@ def home():
 def predict():
     int_features = [int(x) for x in request.form.values()]
     int_features = model_normalizer.transform(int_features)
-    int_features[2] = np.log(int_features[2])
     final_features = [np.array(int_features)]
     prediction = model.predict(final_features)
    
