@@ -17,10 +17,10 @@ def predict():
     prediction = model.predict(final_features)
    
     if prediction == 0:
-        return render_template('project.html', prediction_text = f'you are not able to donate the blood')
+        return render_template('project.html', prediction_text = f'Result: You are not able to donate the blood.')
 
     else:
-        return render_template('project.html', prediction_text = f'you are allright and able to donate the blood')
+        return render_template('project.html', prediction_text = f'Result: You are able to donate the blood.')
 
 if __name__ == '__main__':
     app.run(debug=True)
